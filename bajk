@@ -1,0 +1,736 @@
+﻿//	Ext.define('Customer', {
+//     extend: 'Ext.data.Model',
+//     fields: [
+//         {name: 'customerCode', type: 'string'},
+//         {name: 'customerName',  type: 'string'},
+//         {name: 'paperworkType',       type: 'string'},
+//         {name: 'paperworkCode',  type: 'string'},
+//         {name: 'country',  type: 'string'}
+//     ]
+// });
+//
+// var myStore = Ext.create('Ext.data.Store', {
+//     model: 'Customer',
+//     data : [
+//         {customerCode: datas[0].get('customerCode'),   
+//         customerName: datas[0].get('customerName'), 
+//         paperworkType: '组织机构代码', 
+//         paperworkCode: '727758496', country: '中华人民共和国'}
+//     ]
+// });
+// var grid = Ext.getCmp('dailymanage_customer_view').getView();
+// grid.reconfigure(myStore);
+
+
+
+[ {
+												customerCode : '123',
+												customerName : 'test',
+												paperworkType : '组织机构代码',
+												paperworkCode : '727758496',
+												country : '中华人民共和国'
+											} ]
+											
+											
+											
+											MonitoringAssetsView
+											WarningConfirmationNo
+											
+											
+											Ext.define('Apmis.controller.dailymanage.DailyManageControl', {
+	extend : 'Ext.app.Controller',
+	views : [ 'dailymanage.WarningSearchView',
+			'dailymanage.WarnigSearchCustomerView',
+			'dailymanage.WarnigSearchCustomerDetailsView',
+			'dailymanage.WarnigSearchContractView',
+			'dailymanage.trackmonitor.AssetListView' ],
+	stores : [ 'dailymanage.WarningSearchStore',
+			'dailymanage.WarningSearchCustomerStore',
+			'dailymanage.trackmonitor.AssetListStore' ],
+	models : [ 'dailymanage.WarningSearchModel',
+			'dailymanage.WarningSearchCustomerModel',
+			'dailymanage.trackmonitor.AssetListModel' ]
+});
+
+Ext.getCmp('#id').getComponent(0).getForm(); // 获取tabpanel里第一个panel的form
+
+
+var datas = Ext.getCmp('CostMaintainView.gridpanel').getSelectionModel().getSelection(); 
+datas[0].get('customerName')
+form.loadRecord(datras[0]);
+
+
+{
+												xtype : 'button',
+												text : '    重置    ',
+												x : 40,
+												y : 0,
+												listeners : {
+													click : {
+														fn : me.reset,
+														scope : me
+													}
+												}
+											}
+											
+{
+																	xtype : 'button',
+																	text : '导入催收通知回执',
+																	handler : function() {
+																		// 通过别名创建对象
+																		Ext
+																				.createByAlias(
+																						'widget.UploadWindowView',
+																						{
+																							title : '导入催收通知回执',
+																							id : 'upload_window',
+																							//height : 310,
+																							width : 550,
+																							//layout : 'fit',
+																							modal : true,
+																							autoShow : false
+																						})
+																				.show();
+																	}
+																}
+
+
+Ext.Msg.confirm('标题', '确定要删除吗？', function(btn) {
+				if (btn == 'yes') {
+					var datas = Ext
+							.getCmp('RepossessedAssetsApplyView.DetailsPanel')
+
+							.getSelectionModel().getSelection();
+					var store = Ext
+							.getCmp('RepossessedAssetsApplyView.DetailsPanel')
+							.getStore();
+					console.log(store.getCount());
+					store.remove(datas[0]);
+					console.log(store.getCount());
+					var data = store.getRange(0, store.getCount());
+					console.log(data);
+					store.loadData(data);
+				} else {
+					return false;
+				}
+			});											
+			
+			
+			Ext
+														.createByAlias(
+																'widget.AssetsManageFileUploadWindowView',
+																{
+																	title : '资料上传',
+																	id : 'file_upload_window',
+																	// height :
+																	// 310,
+																	width : 550,
+																	// layout :
+																	// 'fit',
+																	modal : true,
+																	autoShow : false
+																}).show();
+Ext.create('Ext.window.Window', {
+		title : '合同详细信息',
+		id : 'warning_search_contract_window',
+		//height : 410,
+		width : 635,
+		layout : 'fit',
+		modal : true,
+		autoShow : false,
+		items : {
+			xtype : 'WarnigSearchContractView'
+		}
+	}).show();																													
+	
+				
+				
+创建对象：
+var amfm = Ext.create(
+																'Apmis.model.collectionmanage.BadAssetsDebtManage.AssetsManageFileModel', {
+																	fileName : fname
+																		.substr(fname
+																				.lastIndexOf('\\')
+																				+ 1),
+																	operation : '删除'
+																});				
+
+
+																
+																
+.x-grid-td
+border-width:1,
+border-color:'black white white black',
+
+.x-grid-cell
+
+,
+						bodyStyle : 'border-color:#fff #000 #000 #fff',
+bodyStyle : {
+//							background : '#000',
+//							padding : '10px',
+							border:'1px solid #000'
+							border-color:'black white white black'
+						},																
+						
+						
+{
+							xtype : 'gridcolumn',
+							dataIndex : 'col2',
+							width : 65,
+							text : '抵债物名称',
+							// css:'border-width:1;border-color:#000 #fff #fff #000',
+							renderer : function(value, metaData, record,
+									rowIndex, colIndex, store, view) {
+										console.log(value);
+										console.log(view);
+//								console.log(metaData);
+//								metaData.attr = "style=\"border-width:1;border-color:'#000 #fff #fff #000'\"";
+								metaData.tdAttr = "border style=\"border-width:1 !important;border-color:#000 #fff #fff #000 !important;margin:0;\"";
+//								metaData.css = " ";
+//								metaData.css = "my-grid-cell-css";
+								console.log(metaData);
+								return value;
+							}
+						}
+						
+						
+												
+// 合计行
+Ext.define('TestResult', {
+    extend: 'Ext.data.Model',
+    fields: ['student', 'subject', {
+        name: 'mark',
+        type: 'int'
+    }]
+});
+
+Ext.create('Ext.grid.Panel', {
+    width: 200,
+    height: 240,
+    renderTo: document.body,
+    x:500,
+    y:300,
+    features: [{
+        groupHeaderTpl: 'Subject: {name}',
+        ftype: 'groupingsummary'
+    }],
+    store: {
+        model: 'TestResult',
+        groupField: 'subject',
+        data: [{
+            student: 'Student 1',
+            subject: 'Math',
+            mark: 84
+        },{
+            student: 'Student 1',
+            subject: 'Science',
+            mark: 72
+        },{
+            student: 'Student 2',
+            subject: 'Math',
+            mark: 96
+        },{
+            student: 'Student 2',
+            subject: 'Science',
+            mark: 68
+        }]
+    },
+    features: [{
+            ftype: 'summary',
+            dock: 'bottom'
+        }],
+    columns: [{
+        dataIndex: 'student',
+        text: 'Name',
+        summaryType: 'count',
+        summaryRenderer: function(value){
+            return Ext.String.format('{0} student{1}', value, value !== 1 ? 's' : '');
+        }
+    }, {
+        dataIndex: 'mark',
+        text: 'Mark',
+        summaryType: 'average'
+    }]
+});						
+
+
+Ext.define('TestResult', {
+            extend: 'Ext.data.Model',
+            fields: ['student', {
+                name: 'mark',
+                type: 'int'
+            }]
+        });
+
+        Ext.create('Ext.grid.Panel', {
+            width: 200,
+            height: 140,
+            x:400,y:300,
+            renderTo: document.body,
+            features: [{
+                ftype: 'summary'
+            }],
+            store: {
+                model: 'TestResult',
+                data: [{
+                    student: 'Student 1',
+                    mark: 84
+                }, {
+                    student: 'Student 2',
+                    mark: 72
+                }, {
+                    student: 'Student 3',
+                    mark: 96
+                }, {
+                    student: 'Student 4',
+                    mark: 68
+                }]
+            },
+            columns: [{
+                dataIndex: 'student',
+                text: 'Name',
+                summaryType: 'count',
+                summaryRenderer: function (value, summaryData, dataIndex) {
+                    return Ext.String.format('{0} student{1}', value, value !== 1 ? 's' : '');
+                }
+            }, {
+                dataIndex: 'mark',
+                text: 'Mark',
+                summaryType: 'average'
+            }]
+        });
+        
+        
+        						
+        						Ext.override(Ext.grid.GridView,{
+        getColumnStyle : function(colIndex, isHeader) {
+            var colModel  = this.cm,
+                colConfig = colModel.config,
+                style     = isHeader ? '' : colConfig[colIndex].css || '',
+                align     = colConfig[colIndex].align;
+             
+            if(Ext.isChrome){
+                style += String.format("width: {0};", parseInt(this.getColumnWidth(colIndex))-2+'px');
+            }else{
+                style += String.format("width: {0};", this.getColumnWidth(colIndex));
+            }
+             
+            if (colModel.isHidden(colIndex)) {
+                style += 'display: none; ';
+            }
+             
+            if (align) {
+                style += String.format("text-align: {0};", align);
+            }
+             
+            return style;
+        }
+    });
+    
+    
+    
+    
+    
+    
+    // each 循环
+    var elments = Ext
+												.select(".x-column-header");
+										elments.each(function(el) {
+													el
+															.setStyle(
+																	"border-color",
+																	'#000 #000 #fff #000');// 设置不同的颜色
+													el.setStyle("border-width",
+															'1');
+												}, this);
+												
+												
+												
+//			Ext.Array.forEach(updateDatas, function(obj, index, updateDatas) {
+//						advgpStore.add(obj);
+//					});
+
+
+												
+value:Ext.util.Format.date(Ext.Date.add(new Date(),Ext.Date.MONTH,-1))
+
+
+// 滚动条
+
+width : '100%',
+	autoScroll : true,
+	
+gridpanel:
+width : '100%',
+				minWidth : 700,
+				// forceFit : true,
+				autoScroll : true,
+
+---
+autoScroll : true,
+width : '100%',
+	
+	width : 1200,
+	autoScroll : true,				
+														
+																
+// 可编辑表格																
+ this.cellEditing = new Ext.grid.plugin.CellEditing({
+            clicksToEdit: 1
+        });
+plugins: [this.cellEditing],
+1
+editor: {
+                    allowBlank: false
+                }
+2
+editor: new Ext.form.field.ComboBox({
+                    typeAhead: true,
+                    triggerAction: 'all',
+                    store: [
+                        ['Shade','Shade'],
+                        ['Mostly Shady','Mostly Shady'],
+                        ['Sun or Shade','Sun or Shade'],
+                        ['Mostly Sunny','Mostly Sunny'],
+                        ['Sunny','Sunny']
+                    ]
+                })                        													
+3
+renderer: 'usMoney',
+                editor: {
+                    xtype: 'numberfield',
+                    allowBlank: false,
+                    minValue: 0,
+                    maxValue: 100000
+                }
+4
+renderer: Ext.util.Format.dateRenderer('M d, Y'),
+                editor: {
+                    xtype: 'datefield',
+                    format: 'm/d/y',
+                    minValue: '01/01/06',
+                    disabledDays: [0, 6],
+                    disabledDaysText: 'Plants are not available on the weekends'
+                }
+                                                
+                
+// 动态视图                
+public static Map<String, Object> dynamicViewQuery(Delegator delegator, DynamicViewEntity dynamicViewEntity,
+			EntityCondition whereEntityCondition, EntityCondition havingEntityCondition, Collection<String> fieldsToSelect,
+			List<String> orderBy, EntityFindOptions findOptions, int pageSize, int currentPage) throws Exception {
+		int start = 0;
+		int totalPage = 0;
+		int totalCount = 0;
+		EntityListIterator eli = null;
+		List<GenericValue> eliResults = FastList.newInstance();
+		try {
+			eli = delegator.findListIteratorByCondition(dynamicViewEntity, whereEntityCondition, havingEntityCondition, fieldsToSelect,
+					orderBy, findOptions);
+			eli.last();
+			totalCount = eli.currentIndex();
+			totalPage = (new BigDecimal(totalCount).divide(new BigDecimal(pageSize), INT_ZERO, RoundingMode.UP)).intValue();
+			if (currentPage > totalPage) {
+				currentPage = totalPage;
+			}
+			start = ((currentPage - INT_ONE) * pageSize);
+			if ((currentPage - INT_ONE) != INT_ZERO) {
+				start = start + INT_ONE;
+			}
+			eli.beforeFirst();
+			eliResults = eli.getPartialList(start, pageSize);
+		} catch (GenericEntityException e) {
+			Debug.logError(e, module);
+			throw new Exception(e);
+		} finally {
+			if (eli != null) {
+				try {
+					eli.close();
+				} catch (GenericEntityException e) {
+					Debug.logError(e, module);
+					throw new Exception(e);
+				}
+			}
+		}
+		Map<String, Object> result = FastMap.newInstance();
+		result.put("eliResults", eliResults);
+		result.put("totalPage", String.valueOf(totalPage));
+		result.put("totalCount", String.valueOf(totalCount));
+		result.put("pageSize", String.valueOf(pageSize));
+		result.put("currentPage", String.valueOf(currentPage));
+		return result;
+	}
+                
+                
+                
+// ie8 indexof                
+if (!Array.prototype.indexOf)
+{
+  Array.prototype.indexOf = function(elt /*, from*/)
+  {
+    var len = this.length >>> 0;  
+     var from = Number(arguments[1]) || 0;
+    from = (from < 0)
+         ? Math.ceil(from)
+         : Math.floor(from);
+    if (from < 0)
+      from += len; 
+     for (; from < len; from++)
+    {
+      if (from in this &&
+          this[from] === elt)
+        return from;
+    }
+    return -1;
+  };
+}
+                 
+                 
+// 刷新表格                 
+// , { // dev
+										// type : 'refresh',
+										// tooltip : '刷新',
+										// // hidden:true,
+										// handler : function(event,
+										// toolEl, panelHeader) {
+										// Ext
+										// .getCmp('DzAssetsApplyView.FilePanel')
+										// .getStore()
+										// .reload();
+										// }
+										// }                 
+										
+										
+										
+
+function handleFile(type) {
+	// Ext.Msg.alert('操作', type);
+	Ext.Msg.confirm('标题', '确定要删除吗？', function(btn) {
+				if (btn == 'yes') {
+					var datas = Ext.getCmp('DzAssetsApplyView.FilePanel')
+							.getSelectionModel().getSelection();
+					var store = Ext.getCmp('DzAssetsApplyView.FilePanel')
+							.getStore();
+					// console.log(store.getCount());
+					store.remove(datas[0]);
+					// console.log(store.getCount());
+					var data = store.getRange(0, store.getCount());
+					// console.log(data);
+					store.loadData(data);
+					return true;
+				} else {
+					return false;
+				}
+			});
+}
+
+// 获取序列号
+delegator.getNextSeqId("tabname");					
+
+
+GenericValue featureGroup = delegator.makeValue("ProductFeatureGroup");
+            featureGroup.set("productFeatureGroupId", moduleId);
+            featureGroup.set("description", description);
+            featureGroup.create();
+            
+            
+  GenericValue survey = delegator.findByPrimaryKey("Survey", UtilMisc.toMap("surveyId", moduleId));
+                productFeatureGroup.set("description", description);
+                survey.set("description", description);
+                delegator.store(productFeatureGroup);
+                delegator.store(survey);            					
+                
+ // form submit                
+BRM业务线-软件交付事业部
+刘豪杰 12:05:59
+  this.getForm().submit({
+            waitMsg: '正在提交数据...',
+            waitTitle: '提示',
+            url: '/productfactory/control/updateSurvey',
+            method: 'POST',
+            success: function(response, action) {
+//                Ext.Msg.alert('提示', '更新调查信息成功');
+                var survey_class_update_window = Ext.getCmp('survey_class_update_window');
+                if (survey_class_update_window) {
+                	survey_class_update_window.close();
+                }
+                // 更新完成后，重新加载列表
+				reQuerySurveyStore();
+            },
+            failure: function(response, action) {
+                var json = Ext.decode(response.responseText);
+                Ext.Msg.alert('提示', '更新调查信息失败');
+            }
+        });                
+        
+        
+Ext.Ajax.request({
+							url : '/productfactory/control/findFeatureTypeIdExit',
+							// url :
+							// '/productfactory/control/removeProductFeatureType',
+							params : {
+								'productFeatureTypeId' : productFeatureTypeId
+							},
+							method : 'POST',
+							timeout : 500000,
+							success : function(response, options) {
+								var json = Ext.decode(response.responseText);
+								var msg = json.msg;
+								if (msg == null) {
+									Ext.Msg.alert('提示框', '列表条件类型删除成功');
+									// 删除完成后，重新加载列表
+									reQueryFeatureTypeStore();
+								} else {
+									Ext.Msg.alert('提示框', msg);
+								}
+							},
+							failure : function(from, action) {
+								Ext.Msg.alert('提示框', action.result.msg);
+							}
+						});        
+        
+        
+//        
+
+
+
+苏伟(su_wei01@uisftech.com) 18:35:46
+com.bosent.serviceui.service.ControlService
+这个类里面有示例，使用SQLProcessor类，直接执行sql语句
+苏伟(su_wei01@uisftech.com) 18:37:40
+声明SQLProcessor对象SQLProcessor sqlPro = new SQLProcessor(delegator.getEntityHelperName("实体表名"));
+
+
+
+// 日期格式
+format : 'Y-m-d H:i:s',
+
+renderer: Ext.util.Format.dateRenderer('Y-m-d'),
+
+
+
+苏伟 17:34:23
+服务中获取当前登录用户
+GenericValue userLogin = (GenericValue) context.get("userLogin");
+
+
+// 格式化日期
+function renderDate(value)
+{
+    var reDate = /\d{4}\-\d{2}\-\d{2}/gi;
+    var reTime = /\d{2}:\d{2}:\d{2}/gi;
+    return value.match(reDate) + " " + value.match(reTime);
+}
+
+
+
+// 科学计数法 
+String sjiachun = "12345E-10";
+		BigDecimal db = new BigDecimal(sjiachun);
+		String ii = db.toPlainString();
+		System.out.println(ii);
+		
+
+// 结束核销审批流程		
+// 	Ext.Ajax.request({
+//									url : 'control/saveHxBadDebtCancelResInfo',
+//									method : 'POST',
+//									params : "applyCode=70000&flowId=2206",// 取得key/value对象数组
+//									timeout : 500000,
+//									success : function(response, options) {
+//										var json = Ext
+//												.decode(response.responseText);
+//										var msg = json.msg;
+//										console.log(msg);
+//										if (msg == null) {
+//											Ext.Msg.alert('提示框', '操作已完成！');
+//										} else {
+//											Ext.Msg.alert('提示框', msg);
+//										}
+//									},
+//									failure : function(from, action) {
+//										Ext.Msg.alert('提示框', action.result.msg);
+//									}
+//								});		
+
+
+extjs 表单验证
+allowBlank: false,
+
+数字输入框
+xtype : 'numberfield',
+									minValue : 0,
+									maxValue : 1000000
+									
+
+var reDate = /\d{4}\-\d{2}\-\d{2}/gi;
+var reTime = /\d{2}:\d{2}:\d{2}/gi;
+function renderDatetime(value)
+{
+
+    return value.match(reDate) + " " + value.match(reTime);
+}
+// 表单校验
+var number_reg = /^-?\d+$/gi;//整数正则
+var number_reg2 = /^(-?\d+)(\.\d{1,2})?$/gi; //浮点正则
+
+Ext.apply(Ext.form.field.VTypes, {
+    	numberFormat : function(val, field) {
+    		if (number_reg.test(val)) {
+    			return true;
+    		} else if (number_reg2.test(val)){
+    			return true;
+    		} else if (number_reg.test(val) || number_reg2.test(val)){
+    			return true;
+    		} else {
+    			return false;
+    		}
+    	},
+    	numberFormatText: '只能输入数字！',
+    	
+    	dateFormat:function(val, field) {
+            var date = val.match(reDate);//field.parseDate(val);
+            if (!date) {
+                return false;
+            }
+            return true;
+    	},
+    	dateFormatText: '日期格式不正确！yyyy-mm-dd',
+    	
+        daterange: function(val, field) {
+            var date = val.match(reDate);
+            if (!date) {
+                return false;
+            }
+            date = field.parseDate(val);
+			if (field.startDateField && (!this.dateRangeMax || (date.getTime() != this.dateRangeMax.getTime()))) {
+                var start = field.up('form').down('#' + field.startDateField);
+                start.setMaxValue(date);
+                // start.validate();
+                this.dateRangeMax = date;
+            }
+            else if (field.endDateField && (!this.dateRangeMin || (date.getTime() != this.dateRangeMin.getTime()))) {
+                var end = field.up('form').down('#' + field.endDateField);
+                end.setMinValue(date);
+                // end.validate();
+                this.dateRangeMin = date;
+            }
+            return true;
+        },
+
+        daterangeText: 'Start date must be less than end date',
+
+        password: function(val, field) {
+            if (field.initialPassField) {
+                var pwd = field.up('form').down('#' + field.initialPassField);
+                return (val == pwd.getValue());
+            }
+            return true;
+        },
+
+        passwordText: 'Passwords do not match'
+    });
+ 用法：
+ vtype : 'numberFormat'   
+    
+    									
